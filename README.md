@@ -2,6 +2,7 @@
 
 [Live Tool](https://Zierax.github.io/G-dorks/)
 
+swiss army list for every bug hunter 💀💀💀
 
 </p>
 
