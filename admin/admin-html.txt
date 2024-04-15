@@ -1,0 +1,11 @@
+inurl: admin.html
+inurl: admin2.html
+inurl: admin3.html
+inurl: admin4.html
+inurl: admin5.html
+inurl: admin6.html
+inurl: admin7.html
+inurl: admin8.html
+inurl: admin9.html
+inurl: administrator/admin.html
+inurl: assests/admin.html

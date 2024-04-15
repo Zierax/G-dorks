@@ -1,0 +1,32 @@
+inurl:?XDEBUG_SESSION_START=phpstorm
+inurl:/config/device/wcd
+inurl:\"/phpmyadmin/user_password.php
+intext:\"SonarQube\" + \"by SonarSource SA.\" + \"LGPL v3\"
+inurl:/xprober ext:php
+intext:\"Healthy\" + \"Product model\" + \" Client IP\" + \"Ethernet\"
+inurl:/phpPgAdmin/browser.php
+ext:php | intitle:phpinfo \"published by the PHP Group\"
+allintext:\"Index Of\" \"sftp-config.json\"
+inurl:_vti_bin/Authentication.asmx
+\"Powered by 123LogAnalyzer\"
+intitle:Snoop Servlet
+allintitle:\"Pi-hole Admin Console\"
+intitle:\"Lists Web Service\"
+intitle:\"Monsta ftp\" intext:\"Lock session to IP\"
+intitle:\"Microsoft Internet Information Services 8\" -IIS
+intext:\"index of /\" \"Index of\" access_log
+inurl:\"id=*\" & intext:\"warning mysql_fetch_array()\"
+\"index of /private\" -site:net -site:com -site:org
+inurl:\":8088/cluster/apps\"
+intitle:\"index of\" \"docker.yml\"
+intitle:\"index of\" \"debug.log\" OR \"debug-log\"
+intext:\"This is the default welcome page used to test the correct operation of the Apache
+\"Powered by phpBB\" inurl:\"index.php?s\" OR inurl:\"index.php?style\"
+intitle:\"index of\" \"powered by apache \" \"port 80\"
+intitle:\"Web Server's Default Page\" intext:\"hosting using Plesk\" -www
+site:ftp.*.com \"Web File Manager\"
+intitle:\"Welcome to JBoss\"
+intitle:\"Welcome to nginx!\" intext:\"Welcome to nginx on Debian!\" intext:\"Thank you for\"
+intitle:\"index of\" \"Served by Sun-ONE\"
+-pub -pool intitle:\"index of\" \"Served by\" \"Web Server\"
+intitle:\"index of\" \"server at\"
