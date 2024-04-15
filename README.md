@@ -1,109 +1,147 @@
 # G-dorks
 
-SubDomains
-site:*.example.com
+[Live Tool](https://Zierax.github.io/G-dorks/)
 
-Broad domain search w/ negative search
-site:example.com -www -shop -share -ir -mfa
 
-PHP extension w/ parameters
-site:example.com ext:php inurl:?
+</p>
 
-Disclosed XSS and Open Redirects
-site:openbugbounty.org inurl:reports intext:"example.com"
+---
+### Sub Domain Search
 
-Juicy Extensions
-site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
+> site:*.example.com 
 
-XSS prone parameters
-inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
+### Broad domain search w/ negative search
 
-Open Redirect prone parameters
-inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http site:example.com
+> site:example.com -www -shop -share -ir -mfa
 
-SQLi Prone Parameters
-inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:example.com
+### PHP extension w/ parameters
 
-SSRF Prone Parameters
-inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain= | inurl:page= inurl:& site:example.com
+> site:example.com ext:php inurl:?
 
-LFI Prone Parameters
-inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
+### Disclosed XSS and Open Redirects
 
-RCE Prone Parameters
-inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read= | inurl:ping= inurl:& site:example.com
+> site:openbugbounty.org inurl:reports intext:"example.com"
 
-High % inurl keywords
-inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
+### Juicy Extensions
 
-Sensitive Parameters
-inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
+> site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess
 
-API Docs
-inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
+### XSS prone parameters
 
-Code Leaks
-site:pastebin.com "example.com"
+> inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
 
-site:jsfiddle.net "example.com"
+### Open Redirect prone parameters
 
-site:codebeautify.org "example.com"
+> inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http site:example.com
 
-site:codepen.io "example.com"
+### SQLi Prone Parameters
 
-Cloud Storage
-site:s3.amazonaws.com "example.com"
+> inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:example.com
 
-site:blob.core.windows.net "example.com"
+### SSRF Prone Parameters
 
-site:googleapis.com "example.com"
+> inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:& site:example.com
 
-site:drive.google.com "example.com"
+### LFI Prone Parameters
 
-site:dev.azure.com "example[.]com"
+> inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
 
-site:onedrive.live.com "example[.]com"
+### RCE Prone Parameters
 
-site:digitaloceanspaces.com "example[.]com"
+> inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
 
-site:sharepoint.com "example[.]com"
+### High % inurl keywords
 
-site:s3-external-1.amazonaws.com "example[.]com"
+> inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php site:example[.]com
 
-site:s3.dualstack.us-east-1.amazonaws.com "example[.]com"
+### Sensitive Parameters
 
-site:dropbox.com/s "example[.]com"
+> inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:& site:example[.]com
 
-site:box.com/s "example[.]com"
+### API Docs
 
-site:docs.google.com inurl:"/d/" "example[.]com"
+> inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
 
-JFrog Artifactory
-site:jfrog.io "example[.]com"
+### Code Leaks
 
-Firebase
-site:firebaseio.com "example[.]com"
+> site:pastebin.com "example.com"
 
-File upload endpoints
-site:example.com ”choose file”
-inurl: "?file="
+> site:jsfiddle.net "example.com"
 
-Dorks that work better w/o domain
-Bug Bounty programs and Vulnerability Disclosure Programs
-"submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
+> site:codebeautify.org "example.com"
 
-site:*/security.txt "bounty"
+> site:codepen.io "example.com"
 
-Apache Server Status Exposed
-site:*/server-status apache
+### Cloud Storage
 
-WordPress admin
-inurl:/wp-admin/admin-ajax.php
-inurl:/wp-admin/admin.php
+> site:s3.amazonaws.com "example.com"
 
-Drupal
-intext:"Powered by" & intext:Drupal & inurl:user
+> site:blob.core.windows.net "example.com"
 
-Joomla
-site:*/joomla/login
+> site:googleapis.com "example.com"
+
+> site:drive.google.com "example.com"
+
+> site:dev.azure.com "example[.]com"
+
+> site:onedrive.live.com "example[.]com"
+
+> site:digitaloceanspaces.com "example[.]com"
+
+> site:sharepoint.com "example[.]com"
+
+> site:s3-external-1.amazonaws.com "example[.]com"
+
+> site:s3.dualstack.us-east-1.amazonaws.com "example[.]com"
+
+> site:dropbox.com/s "example[.]com"
+
+> site:box.com/s "example[.]com"
+
+> site:docs.google.com inurl:"/d/" "example[.]com"
+
+### JFrog Artifactory
+
+> site:jfrog.io "example[.]com"
+
+### Firebase
+
+> site:firebaseio.com "example[.]com"
+
+### File upload endpoints
+
+> site:example.com ”choose file”
+
+## Dorks that work better w/o domain
+
+### Bug Bounty programs and Vulnerability Disclosure Programs
+
+> "submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone"
+
+> site:*/security.txt "bounty"
+
+### Apache Server Status Exposed
+
+> site:*/server-status apache
+
+### WordPress
+
+> inurl:/wp-admin/admin-ajax.php
+
+### Drupal
+
+> intext:"Powered by" & intext:Drupal & inurl:user
+
+### Joomla
+
+> site:*/joomla/login
+
+
+---
+
+
+Top Parameters:
+
+https://github.com/lutfumertceylan/top25-parameter
+
 
