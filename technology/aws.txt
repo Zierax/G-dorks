@@ -1,3 +1,0 @@
-inurl: aws
-intext: aws
-intittle: aws
