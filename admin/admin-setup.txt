@@ -1,3 +1,0 @@
-inurl: "adminsetup"
-inurl: "phpmyadmin"
-inurl: /admin/"*"
