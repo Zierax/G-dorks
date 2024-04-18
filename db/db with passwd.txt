@@ -1,0 +1,120 @@
+"cpanel username" "cpanel password" ext:txt
+"insert into users" "VALUES" ext:sql | ext:txt | ext:log | ext:env
+"password 7" ext:txt | ext:log | ext:cfg
+intitle:"index of" "idx_config"
+"mailer_password:" + "mailer_host:" + "mailer_user:" + "secret:" ext:yml
+intext:construct('mysql:host
+"keystorePass=" ext:xml | ext:txt -git -gitlab
+"define('SECURE_AUTH_KEY'" + "define('LOGGED_IN_KEY'" + "define('NONCE_KEY'" ext:txt | ext:cfg | ext:env | ext:ini
+intitle:"index of" "anaconda-ks.cfg" | "anaconda-ks-new.cfg"
+"define('DB_USER'," + "define('DB_PASSWORD'," ext:txt
+intitle:"index of" "config.exs" | "dev.exs" | "test.exs" | "prod.secret.exs"
+jdbc:oracle://localhost: + username + password ext:yml | ext:java -git -gitlab
+jdbc:postgresql://localhost: + username + password ext:yml | ext:java -git -gitlab
+jdbc:mysql://localhost:3306/ + username + password ext:yml | ext:javascript -git -gitlab
+"spring.datasource.password=" + "spring.datasource.username=" ext:properties -git -gitlab
+ext:log password END_FILE
+site:pastebin.com intext:admin.password
+"db.username" + "db.password" ext:properties
+ext:cfg "g_password" | "sv_privatepassword" | "rcon_password" -git -gitlab
+"server.cfg" ext:cfg intext:"rcon_password" -git -gitlab
+"anaconda-ks.cfg" | "ks.cfg" ext:cfg -git -gitlab
+rootpw --iscrypted ext:cfg
+"admin_password" ext:txt | ext:log | ext:cfg
+"index of" "password.ini"
+filetype:log intext:password after:2015 intext:@gmail.com | @yahoo.com | @hotmail.com
+"'username' =&gt;" + "'password' =&gt;" ext:log
+ext:txt intext:@yahoo.com intext:password
+intitle:"database.php" inurl:"database.php" intext:"db_password" -git -gitlab
+ext:xls intext:@gmail.com intext:password
+"POSTGRES_PASSWORD=" ext:txt | ext:cfg | ext:env | ext:ini | ext:yml | ext:sql -git -gitlab
+"/** MySQL database password */" ext:txt | ext:cfg | ext:env | ext:ini
+"EMAIL_HOST_PASSWORD" ext:yml | ext:env | ext:txt | ext:log
+allintext:"redis_password" ext:env
+intext:"db_database" ext:env intext:"db_password"
+"Index of" "/yahoo_site_admin/credentials"
+allintext:password filetype:log
+inurl:logs intext:GET https:// ext:txt intext:password intext:username
+intitle:"index of" "/master.passwd"
+"MYSQL_ROOT_PASSWORD:" ext:env OR ext:yml -git
+filetype:env "DB_PASSWORD"
+"index of" ".env"
+intext:"Index of /password"
+"config.php.bak" intitle:"index of"
+intitle:"index of" "config.neon" OR "config.local.neon"
+intitle:"index of" "passwords.xlsx"
+inurl:*helpdesk* intext:"your default password is"
+"MasterUserPassword" ext:cfg OR ext:log OR ext:txt -git
+"/etc/shadow root:$" ext:cfg OR ext:log OR ext:txt OR ext:sql -git
+intitle:"index of " "*.passwords.txt"
+"admin password irreversible-cipher" ext:txt OR ext:log OR ext:cfg
+"super password level 3 cipher" ext:txt OR ext:log
+intitle:"index of" "db.ini"
+intitle:"index of" "database.ini" OR "database.ini.old"
+intitle:"index of" application.ini
+intitle:"index of" "db.connection.js"
+"d-i passwd/root-password-crypted password" ext:cfg
+"configure account user encrypted" ext:cfg
+"create account" admin ext:cfg
+password console-password ext:cfg -git
+"enable password" ext:cfg -git -cisco.com
+intitle:"Index of" dbconnect.inc
+intext:authentication set encrypted-password ext:cfg
+intitle:"index of" "passwords.yml"
+intitle:"index of" "credentials.yml"
+intext:"WPENGINE_SESSION_DB_USERNAME" || "WPENGINE_SESSION_DB_PASSWORD"
+intext:"username=" AND "password=" ext:log
+intitle:index.of "creds.txt"
+intitle:"index of" share.passwd OR cloud.passwd OR ftp.passwd -public
+intitle:"index of" "db.conf"
+intitle:"Index of" password.txt
+"contrasena" filetype:sql -github.com
+intext:"@gmail.com" intext:"password" inurl:/files/ ext:txt
+intitle:"index of" "ftp.passwd"
+intitle:"index of" "htpasswd.txt"
+"pass" "usuario" filetype:sql
+intext:"aspx" filetype:txt login &amp; password
+inurl:users.json + "username"
+intext:"wordpress" filetype:xls login &amp; password
+s3 site:amazonaws.com filetype:xls password
+inurl:login.txt filetype:txt
+inurl:wp-config.php intext:DB_PASSWORD -stackoverflow -wpbeginner
+intitle:settings.py intext:EMAIL_USE_TLS -git -stackoverflow
+intitle:settings.py intext:EMAIL_HOST_PASSWORD -git -stackoverflow
+username | password inurl:resources/application.properties -github.com -gitlab
+filetype:xml config.xml passwordHash Jenkins
+intext:jdbc:oracle filetype:java
+filetype:txt $9$ JunOS
+filetype:reg reg HKEY_CURRENT_USER intext:password
+inurl:"standalone.xml" intext:"password&gt;"
+/_wpeprivate/config.json
+inurl:"build.xml" intext:"tomcat.manager.password"
+intitle:"index of" intext:login.csv
+inurl:"trello.com" and intext:"username" and intext:"password"
+inurl:"wp-license.php?file=../..//wp-config"
+"battlefield" "email" site:pastebin.com
+inurl:wp-config.bak
+intext:"rabbit_password" | "service_password" filetype:conf
+"whoops! there was an error." "db_password"
+intext:"login" department | admin | manager | company | host filetype:xls | xlsx -community -github
+intext:"please change your" password |code | login file:pdf | doc | txt | docx -github
+inurl:configuration.php and intext:"var $password="
+inurl:/dbcp.properties + filetype:properties -github.com
+intext:define('AUTH_KEY',     ' wp-config.php filetype:txt
+inurl:wp-config-backup.txt
+"password.xlsx" ext:xlsx
+filetype:env intext:REDIS_PASSWORD
+intitle:"index.of" inurl:"cvs" login | passwd | password | access | pass -github -pub
+site:showmyhomework.co.uk/school/homeworks/ "password"
+filetype:doc inurl:"gov" intext:"default password is"
+site:trello.com intext:mysql AND intext:password -site:developers.trello.com -site:help.trello.com
+intext:"PuTTY log" ext:log "password" -supportforums -github
+inurl:"/App.Config" + ext:config + "password=" -github -git
+intitle:"Index of" intext:"Login Data"
+inurl:"servlet/ViewFormServlet?" "pwd"
+Codeigniter filetype:sql intext:password | pwd intext:username | uname intext: Insert into users values
+intitle:"index.of" "places.sqlite" "Mail" thunderbird -mozilla.org -scan
+ext:ini Robust.ini filetype:ini "password"
+filetype:config "" "password" "web.config" -stackoverflow -youtube.com -github
+intitle:"index.of" "places.sqlite" "key3.db" -mozilla.org
+inurl:"config.xml" "password" ext:xml -stackoverflow.com -github.com

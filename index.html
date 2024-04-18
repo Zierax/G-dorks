@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Dorks for Bug Bounty</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      color: #333;
+      box-sizing: border-box;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #4CAF50;
+      text-align: center;
+    }
+    
+    label {
+      font-size: 1.2em;
+    }
+    
+    input,
+    button {
+      font-size: 1em;
+      padding: 8px;
+      margin-left: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    p {
+      margin: 0;
+    }
+    
+    p.description {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    section {
+      margin-top: 20px;
+      border-top: 2px solid #4CAF50;
+      padding-top: 20px;
+    }
+    
+    h2 {
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+    
+    ul.link-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    ul.link-list li {
+      margin-bottom: 10px;
+    }
+    
+    .input-group {
+      margin-bottom: 15px;
+      margin: 0 auto;
+    }
+
+    #addDorkForm {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999; 
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Google Dorks for Bug Bounty</h1>
+    <div class="input-group mb-3">
+      <input type="text" id="domainInput" class="form-control" placeholder="Enter a domain (e.g., example.com)">
+      <div class="input-group-append">
+        <button id="updateDomainButton" class="btn btn-custom">Update Domain</button>
+      </div>
+    </div>
+    <button id="addDorkButton" class="btn btn-primary">Add More Dorks</button>
+    <ul id="dorkList" class="list-unstyled"></ul>
+    <section>
+      <h2>Additional Resources</h2>
+      <ul class="link-list">
+        <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
+        <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
+        <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
+        <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Add Dork Form -->
+  <div id="addDorkForm" class="add-dork-form">
+    <form id="dorkForm">
+      <div class="form-group">
+        <label for="newDork">Add New Dork:</label>
+        <input type="text" class="form-control" id="newDork" placeholder="Enter a new dork">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    let originalDorks = [];
+    async function fetchDorks() {
+      const url = "https://raw.githubusercontent.com/Zierax/G-dorks/main/README.md";
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const dorkList = document.getElementById("dorkList");
+        const regex = /(?:^### (.+)|^> (.+))/gm;
+        let match;
+        let title = '';
+        let firstDork = true;
+        while ((match = regex.exec(text)) !== null) {
+          if (match[1]) {
+            title = match[1];
+          } else {
+            if (firstDork) {
+              firstDork = false;
+              continue;
+            }
+            const dork = match[2];
+            originalDorks.push(dork);
+            const listItem = createDorkListItem(dork, title);
+            dorkList.appendChild(listItem);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch dorks:', error);
+      }
+    }
+
+    let prevTitle = '';
+    function createDorkListItem(dork, description) {
+      const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+      const listItem = document.createElement("li");
+      if (description && description !== prevTitle) {
+        const desc = document.createElement("p");
+        desc.textContent = description;
+        desc.classList.add("description");
+        listItem.appendChild(desc);
+        prevTitle = description;
+      }
+      const link = document.createElement("a");
+      link.href = googleLink;
+      link.textContent = dork;
+      link.classList.add("dorkLink");
+      link.target = "_blank";
+      listItem.appendChild(link);
+      return listItem;
+    }
+
+    function updateDomain() {
+      const domainInput = document.getElementById("domainInput");
+      const domains = domainInput.value.split(",").map(domain => domain.trim());
+      if (domains.length === 0) return;
+      const dorkLinks = document.querySelectorAll(".dorkLink");
+      dorkLinks.forEach((link, index) => {
+        let originalDork = originalDorks[index];
+        if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
+          const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
+          originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
+        } else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
+          const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
+          originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
+        } else if (originalDork.includes('intext:"example.com"')) {
+          const joinedDomains = domains.map(d=> `intext:"${d}"`).join(" | ");
+          originalDork = originalDork.replace(/intext:"example\.com"/gi, joinedDomains);
+        }
+        const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+        link.textContent = originalDork;
+        link.href = updatedLink;
+      });
+    }
+
+    const updateDomainButton = document.getElementById("updateDomainButton");
+    updateDomainButton.addEventListener("click", updateDomain);
+
+    fetchDorks();
+
+    // Show Add Dork Form
+    const addDorkButton = document.getElementById("addDorkButton");
+    const addDorkForm = document.getElementById("addDorkForm");
+    addDorkButton.addEventListener("click", function() {
+      addDorkForm.style.display = "block";
+    });
+
+    // Submit New Dork
+    const dorkForm = document.getElementById("dorkForm");
+    dorkForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const newDorkInput = document.getElementById("newDork");
+      const newDork = newDorkInput.value.trim();
+      if (newDork !== "") {
+        const dorkList = document.getElementById("dorkList");
+        const listItem = createDorkListItem(newDork, "");
+        dorkList.appendChild(listItem);
+        originalDorks.push(newDork);
+        newDorkInput.value = "";
+      }
+      addDorkForm.style.display = "none";
+    });
+  </script>
+</body>
+</html>

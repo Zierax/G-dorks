@@ -1,0 +1,2 @@
+inurl: /admin/admin.aspx
+inurl: admin.aspx
